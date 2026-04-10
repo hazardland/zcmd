@@ -29,12 +29,17 @@
 
 - Operation cancel/resume on mid copy or move between disks with progress functions (?)
 
-# I like VSCode terminal color scheme any chance we make it permanent? Zed One Theme Dark
+# So we created Zed One Dark theme in Windows Terminal by modifying settings.json (Claude found somehow) what I want is I want a command which installs a theme or refreshs in Windows Terminal (if we are in windows terminal or if file exists of settings.json) it should not blindly append though new theme in setting.json, first 
 
 # Far had cool featue u could enter archives like folder and copy from them and copy to them
 
-# Publush site
 
 # Think about klad1 port
 
-Bug [05:47:08.68]src> v[id| kling_20260326_作品__1362_0 (1).mp4] on v I pressed delete when there rest was hint and cursor moved to end of the id
+
+# When I type in the editor and I have word wrap enabled and I reach end of screen if what I type is on last line and last symbol in editor the editor halts, but if I make new line first and edit one line up everything is ok
+
+# Explorer filter needs to be reworked, DOWN key should act like ENTER it should mean like we finished inputing filter and we continue on tab, it would be nice that in "top" tool the DOWN key acted the same, like it would be nice if on first down fitler edit mode is finished and DOWN goes down on file entry if possible also, oh I checked and it works in Explorer so in "top" it needs to be implemented only
+
+# Move minimap and mp3 libs sin lib folder
+
