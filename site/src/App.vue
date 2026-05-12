@@ -1,9 +1,9 @@
 ﻿<script setup>
 import { onBeforeUnmount, onMounted, ref } from 'vue'
 
-const heroVideo = '/videos/header.mp4'
-const heroRatio = '16 / 9'
-const heroTopTrim = '5.8%'
+const heroVideo = '/videos/zcmd.mp4'
+const heroRatio = '16 / 8.875'
+const heroTopTrim = 'calc(4.6% + 8px)'
 const heroChromeHeight = '42px'
 const headerCondensed = ref(false)
 
@@ -91,10 +91,13 @@ const spotlights = [
     accent: '#e5c07b',
   },
   {
-    cmd: 'play',
-    title: 'An MP3 player that belongs in Zcmd',
-    body: 'Play a file or a folder, shuffle, skip, pause, tweak volume, and keep a lightweight now-playing UI right in the shell.',
-    shot: 'zcmd_play.gif',
+    cmd: 'help',
+    title: 'More built-in tools',
+    body: 'Open help to see the built-in command list and short usage hints. It is the quickest way to see what else Zcmd includes.',
+    shot: 'help.png',
+    asset: '/images/help.png',
+    alt: 'Zcmd built-in help command list',
+    crop: '19px',
     accent: '#ffd885',
   },
 ]
@@ -153,7 +156,7 @@ const extras = [
         <div class="hero-intro">
           <div class="hero-copy">
             <p class="eyebrow">Windows shell replacement</p>
-            <h1>Zcmd is a portable, single executable, zero config shell replacement for <code>cmd.exe</code> and PowerShell.</h1>
+            <h1>Zcmd is a portable, single executable, zero config shell replacement for <code>cmd.exe</code></h1>
           </div>
 
           <div class="hero-side">
@@ -211,10 +214,10 @@ const extras = [
 
       <section class="summary-strip">
         <div class="summary-card">
-          <p class="eyebrow">Why people care</p>
-          <h2>Put it somewhere and run it. Then keep it open because the shell itself gets better.</h2>
+          <p class="eyebrow">What it changes</p>
+          <h2>Run one executable and get a better shell session without changing the rest of your Windows toolchain.</h2>
           <p>
-            Fast prompt. Better history. Better completion. Better file navigation. And a set of built-in tools that makes Zcmd feel less like a wrapper and more like a workspace.
+            Zcmd keeps normal Windows commands working, but improves the parts you use constantly: prompt rendering, history, completion, file navigation, and a set of built-in tools for common terminal work.
           </p>
         </div>
       </section>

@@ -621,7 +621,7 @@ code {
 }
 
 .video-frame::before {
-  content: "";
+  content: none;
   position: absolute;
   inset: 0;
   z-index: 2;
@@ -636,7 +636,7 @@ code {
 }
 
 .video-frame::after {
-  content: "";
+  content: none;
   position: absolute;
   inset: 0;
   z-index: 3;
@@ -678,7 +678,7 @@ code {
 .section-heading h2,
 .install-card h2,
 .more-tools h2 {
-  font-size: clamp(1.9rem, 3.2vw, 3.3rem);
+  font-size: clamp(1.45rem, 2.2vw, 2.25rem);
   line-height: 1.06;
 }
 
