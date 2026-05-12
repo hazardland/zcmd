@@ -35,20 +35,29 @@ const spotlights = [
     title: 'Readable file navigation',
     body: 'Color, sorting, hidden files, and grep-friendly output make ordinary file listing feel worth doing in the shell.',
     shot: 'ls.png',
+    asset: '/images/ls.png',
+    alt: 'Zcmd ls output with colored file listing',
+    crop: '19px',
     accent: '#74ade8',
   },
   {
-    cmd: 'cat',
-    title: 'A terminal that can actually show things',
-    body: 'Syntax-highlighted text, inline image rendering, and even video playback when ffmpeg is available.',
-    shot: 'cat.png',
-    accent: '#e5c07b',
+    cmd: 'edit',
+    title: 'Fix a file without leaving the shell',
+    body: 'Open a file, patch the line, save, and keep moving. The built-in editor keeps quick changes inside the same terminal session.',
+    shot: 'edit.png',
+    asset: '/images/edit.png',
+    alt: 'Zcmd built-in full-screen editor',
+    crop: '19px',
+    accent: '#d19a66',
   },
   {
     cmd: 'explore',
     title: 'Two-panel file work without leaving the shell',
     body: 'Browse, filter, select, copy, move, recycle, and delete inside a full-screen explorer built into Zcmd.',
     shot: 'explore.png',
+    asset: '/images/explore.png',
+    alt: 'Zcmd explore two-panel file manager',
+    crop: '19px',
     accent: '#98c379',
   },
   {
@@ -56,6 +65,9 @@ const spotlights = [
     title: 'Instant process watching and task killing',
     body: 'Opens fast, updates fast, and kills fast. It feels more like a reflex than a detour.',
     shot: 'top.png',
+    asset: '/images/top.png',
+    alt: 'Zcmd top process viewer',
+    crop: '19px',
     accent: '#b477cf',
   },
   {
@@ -63,7 +75,20 @@ const spotlights = [
     title: 'Live system graphs in the terminal',
     body: 'CPU, GPU, RAM, battery, and network history without bouncing out to separate Windows tools.',
     shot: 'resmon.png',
+    asset: '/images/resmon.png',
+    alt: 'Zcmd resmon live system graphs',
+    crop: '19px',
     accent: '#56b6c2',
+  },
+  {
+    cmd: 'cat',
+    title: 'A terminal that can actually show things',
+    body: 'Syntax-highlighted text, inline image rendering, and even video playback when ffmpeg is available.',
+    shot: 'cat.png',
+    asset: '/images/cat.png',
+    alt: 'Zcmd cat output showing syntax highlighted file content',
+    crop: '19px',
+    accent: '#e5c07b',
   },
   {
     cmd: 'play',
@@ -90,13 +115,6 @@ const extras = [
 
 <template>
   <div class="site-shell" id="top">
-    <div class="atmosphere">
-      <div class="halo halo-blue"></div>
-      <div class="halo halo-gold"></div>
-      <div class="shape-ribbon"></div>
-      <div class="grid-fade"></div>
-    </div>
-
     <header class="site-header" :class="{ 'is-condensed': headerCondensed }">
       <div class="site-header-shell">
         <nav class="topbar" aria-label="Primary">
@@ -117,7 +135,6 @@ const extras = [
           </div>
 
           <div class="topbar-actions">
-            <span class="topbar-status">single executable / zero config</span>
             <a
               class="topbar-cta"
               href="https://github.com/hazardland/zcmd/releases/latest"
@@ -136,11 +153,7 @@ const extras = [
         <div class="hero-intro">
           <div class="hero-copy">
             <p class="eyebrow">Windows shell replacement</p>
-            <h1>
-              <span>Zcmd is a portable, single executable,</span>
-              <span>zero config shell replacement for</span>
-              <span><code>cmd.exe</code> and PowerShell.</span>
-            </h1>
+            <h1>Zcmd is a portable, single executable, zero config shell replacement for <code>cmd.exe</code> and PowerShell.</h1>
           </div>
 
           <div class="hero-side">
@@ -225,14 +238,22 @@ const extras = [
           </div>
 
           <div class="spotlight-media">
-            <div class="shot-frame">
+            <div class="shot-frame" :style="{ '--shot-crop-top': tool.crop || '0px' }">
               <div class="shot-topline">
                 <span>{{ tool.cmd }}</span>
-                <span>drop screenshot later</span>
               </div>
-              <div class="shot-placeholder">
-                <span>Screenshot placeholder</span>
-                <code>{{ tool.shot }}</code>
+              <div class="shot-body">
+                <img
+                  v-if="tool.asset"
+                  class="shot-image"
+                  :src="tool.asset"
+                  :alt="tool.alt"
+                  loading="lazy"
+                />
+                <div v-else class="shot-placeholder">
+                  <span>Screenshot placeholder</span>
+                  <code>{{ tool.shot }}</code>
+                </div>
               </div>
             </div>
           </div>
