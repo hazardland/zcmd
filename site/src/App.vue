@@ -1,7 +1,9 @@
 ﻿<script setup>
 import { onBeforeUnmount, onMounted, ref } from 'vue'
 
-const heroVideo = '/videos/zcmd.mp4'
+const asset = (path) => `${import.meta.env.BASE_URL}${path}`
+
+const heroVideo = asset('videos/zcmd.mp4')
 const heroRatio = '16 / 8.875'
 const heroTopTrim = 'calc(4.6% + 8px)'
 const heroChromeHeight = '42px'
@@ -35,7 +37,7 @@ const spotlights = [
     title: 'Readable file navigation',
     body: 'Color, sorting, hidden files, and grep-friendly output make ordinary file listing feel worth doing in the shell.',
     shot: 'ls.png',
-    asset: '/images/ls.png',
+    asset: asset('images/ls.png'),
     alt: 'Zcmd ls output with colored file listing',
     crop: '19px',
     accent: '#74ade8',
@@ -45,7 +47,7 @@ const spotlights = [
     title: 'Fix a file without leaving the shell',
     body: 'Open a file, patch the line, save, and keep moving. The built-in editor keeps quick changes inside the same terminal session.',
     shot: 'edit.png',
-    asset: '/images/edit.png',
+    asset: asset('images/edit.png'),
     alt: 'Zcmd built-in full-screen editor',
     crop: '19px',
     accent: '#d19a66',
@@ -55,7 +57,7 @@ const spotlights = [
     title: 'Two-panel file work without leaving the shell',
     body: 'Browse, filter, select, copy, move, recycle, and delete inside a full-screen explorer built into Zcmd.',
     shot: 'explore.png',
-    asset: '/images/explore.png',
+    asset: asset('images/explore.png'),
     alt: 'Zcmd explore two-panel file manager',
     crop: '19px',
     accent: '#98c379',
@@ -65,7 +67,7 @@ const spotlights = [
     title: 'Instant process watching and task killing',
     body: 'Opens fast, updates fast, and kills fast. It feels more like a reflex than a detour.',
     shot: 'top.png',
-    asset: '/images/top.png',
+    asset: asset('images/top.png'),
     alt: 'Zcmd top process viewer',
     crop: '19px',
     accent: '#b477cf',
@@ -75,7 +77,7 @@ const spotlights = [
     title: 'Live system graphs in the terminal',
     body: 'CPU, GPU, RAM, battery, and network history without bouncing out to separate Windows tools.',
     shot: 'resmon.png',
-    asset: '/images/resmon.png',
+    asset: asset('images/resmon.png'),
     alt: 'Zcmd resmon live system graphs',
     crop: '19px',
     accent: '#56b6c2',
@@ -85,7 +87,7 @@ const spotlights = [
     title: 'A terminal that can actually show things',
     body: 'Syntax-highlighted text, inline image rendering, and even video playback when ffmpeg is available.',
     shot: 'cat.png',
-    asset: '/images/cat.png',
+    asset: asset('images/cat.png'),
     alt: 'Zcmd cat output showing syntax highlighted file content',
     crop: '19px',
     accent: '#e5c07b',
@@ -95,7 +97,7 @@ const spotlights = [
     title: 'More built-in tools',
     body: 'Open help to see the built-in command list and short usage hints. It is the quickest way to see what else Zcmd includes.',
     shot: 'help.png',
-    asset: '/images/help.png',
+    asset: asset('images/help.png'),
     alt: 'Zcmd built-in help command list',
     crop: '19px',
     accent: '#ffd885',

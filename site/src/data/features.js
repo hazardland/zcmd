@@ -1,10 +1,13 @@
+const asset = (path) => `${import.meta.env.BASE_URL}${path}`;
+const mp3_video = asset('videos/mp3.mp4');
+
 export const features = [
   {
     id: 'prompt',
     title: 'A Prompt With Personality',
     body:
       'Zcmd makes the command line feel alive with a polished prompt, branch awareness, and a sharper visual identity than the usual Windows shell experience.',
-    video: '/videos/mp3.mp4',
+    video: mp3_video,
     ratio: '417 / 203',
     topTrim: '9.25%',
     accent: '#74ade8',
@@ -14,7 +17,7 @@ export const features = [
     title: 'History, Hints, Completion',
     body:
       'Ghost hints, smart history navigation, and responsive completion bring the kind of shell quality-of-life that usually feels missing on Windows.',
-    video: '/videos/mp3.mp4',
+    video: mp3_video,
     ratio: '417 / 203',
     topTrim: '9.25%',
     accent: '#e5c07b',
@@ -24,7 +27,7 @@ export const features = [
     title: 'Colorful File Navigation',
     body:
       'Built-ins like ls are fast, readable, and expressive, with strong colors that make directories, media, executables, and hidden files instantly easier to scan.',
-    video: '/videos/mp3.mp4',
+    video: mp3_video,
     ratio: '417 / 203',
     topTrim: '9.25%',
     accent: '#98c379',
@@ -34,7 +37,7 @@ export const features = [
     title: 'Linux-Style Top, Built In',
     body:
       'Zcmd ships with an interactive process viewer inspired by top, so system inspection is part of the shell instead of another tool to install.',
-    video: '/videos/mp3.mp4',
+    video: mp3_video,
     ratio: '417 / 203',
     topTrim: '9.25%',
     accent: '#b477cf',
@@ -44,7 +47,7 @@ export const features = [
     title: 'Inline Media In The Terminal',
     body:
       'Images and video can be rendered directly inside the terminal, turning Zcmd into something much more visual than a plain command runner.',
-    video: '/videos/mp3.mp4',
+    video: mp3_video,
     ratio: '417 / 203',
     topTrim: '9.25%',
     accent: '#56b6c2',
@@ -54,7 +57,7 @@ export const features = [
     title: 'Music Player With Visualizer',
     body:
       'MP3 playback is built right into the shell, complete with a terminal audio visualizer that makes the feature feel native instead of bolted on.',
-    video: '/videos/mp3.mp4',
+    video: mp3_video,
     ratio: '417 / 203',
     topTrim: '9.25%',
     accent: '#ffd885',
