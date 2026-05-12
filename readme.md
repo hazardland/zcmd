@@ -83,6 +83,8 @@ Play a single MP3, shuffle a folder, jump tracks, pause, resume, change volume, 
 
 `top` opens immediately, updates immediately, and kills tasks immediately. No visible lag, no heavyweight detour through Task Manager, no feeling that the tool itself is slowing you down while you are trying to fix something.
 
+![Built-in top process viewer](./images/07-top.png)
+
 ### `resmon` gives you live system graphs
 
 `resmon` shows CPU, GPU, RAM, battery, and network activity with live history graphs, directly in the terminal, without leaving the shell.
@@ -100,6 +102,12 @@ Open a file, fix the thing, save, and keep going. No app switch. No editor start
 Zcmd also includes `yt`, `ip`, `calc`, `json`, `clip`, `clock`, `stopw`, `matrix`, and `notes`.
 
 It is a very particular kind of terminal ambition: not "be everything," but "make the session weirdly capable."
+
+### `help` keeps the built-ins discoverable
+
+The built-in command list is right there in the shell, with short usage hints so you do not have to break flow to remember syntax or rediscover what Zcmd ships with.
+
+![Built-in command help overview](./images/08-help.png)
 
 ## The commands people tend to keep
 
