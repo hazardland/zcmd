@@ -1,0 +1,27 @@
+{
+  "schemes": [
+    {
+      "name": "Zed One Dark",
+      "background": "#282C34",
+      "black": "#282C34",
+      "red": "#E06C75",
+      "green": "#98C379",
+      "yellow": "#E5C07B",
+      "blue": "#61AFEF",
+      "purple": "#C678DD",
+      "cyan": "#56B6C2",
+      "white": "#ABB2BF",
+      "brightBlack": "#636D83",
+      "brightRed": "#EA858B",
+      "brightGreen": "#AAD581",
+      "brightYellow": "#FFD885",
+      "brightBlue": "#85C1FF",
+      "brightPurple": "#D398EB",
+      "brightCyan": "#6ED5DE",
+      "brightWhite": "#FAFAFA",
+      "foreground": "#ABB2BF",
+      "selectionBackground": "#3E4451",
+      "cursorColor": "#528BFF"
+    }
+  ]
+}
