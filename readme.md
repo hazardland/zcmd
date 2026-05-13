@@ -1,37 +1,31 @@
 # Zcmd - Portable Windows Shell Replacement
 
-> Zcmd is a portable, single executable, zero config, performance first Windows shell replacement for `cmd.exe` and PowerShell, with powerful built-in tools for developers.
+> Zcmd is a portable, single executable Windows shell for `cmd.exe`-style workflows, with built-in tools for navigation, viewing, editing, monitoring, and media tasks.
 
 ![Zcmd showcase](./images/zcmd_showcase.gif)
 
-Windows got nicer terminal windows. It did not get a shell that feels properly cared for.
+Zcmd is a Windows shell implemented as a single native executable. It focuses on the interactive parts of a terminal session: prompt rendering, history, completion, file navigation, and a set of built-in commands.
 
-Zcmd is a Windows shell replacement, a `cmd.exe` alternative, and for many developer workflows, a lighter PowerShell alternative. It goes after the part your hands notice: the prompt, history, completion, color, navigation, and the little moments that happen hundreds of times a day.
+It does not try to replace the wider Windows command ecosystem. Built-ins are handled directly in C++, and commands outside that set continue through `cmd.exe` so existing batch files and command-line tools still work.
 
-This is not a Linux shell conversion project. It is not trying to sell Windows users on pretending they are somewhere else. Zcmd is for staying on Windows and having the shell stop acting neglected.
+The core shell is self-contained. Optional tools such as `ffmpeg` and `yt-dlp` are only needed for the media-related commands.
 
-Portable single executable. Zero config for the core shell. No runtime to install. No dependency chain just to get a prompt. Put `zcmd.exe` somewhere and run it.
+## What changes in daily use
 
-The shell itself is native C++ and self-contained. Optional tools like `ffmpeg` and `yt-dlp` only matter if you want the media features. If you want a fast Windows terminal shell that is easy to carry between machines, this is the whole idea.
-
-## Why Zcmd feels better immediately
-
-- `ls` is actually pleasant to look at. Folders are blue, executables are green, archives are red, media pops, hidden files fade back.
-- History survives restarts, filters as you type, and offers ghost hints instead of making you dig.
-- `cd ../someth` + Tab works the way your fingers expect it to.
-- The prompt shows time, git branch, dirty state, exit code, and long-command timing without spawning git.
-- Paths are shown with `/` everywhere in the UI, because Windows can handle it and your eyes deserve better.
-- You can type a folder path and just press Enter. No ceremony.
+- `ls` uses consistent file-type colors and supports sorting, filtering, and hidden-file handling.
+- History persists across restarts and can be searched as you type.
+- Tab completion works for relative paths such as `cd ../someth`.
+- The prompt shows time, git branch, dirty state, exit code, and long-command timing.
+- Paths are displayed with `/` separators in the UI.
+- Entering a directory path and pressing Enter changes into that directory.
 
 ![Zcmd prompt, history hint, and branch info](./images/01-prompt.png)
 
 ![Colored ls output with file types](./images/02-ls.png)
 
-The goal is not to add fifty layers of cleverness. The goal is to remove the low-grade irritation from a normal Windows terminal session.
+## Command model
 
-## Why this Windows shell replacement works without breaking Windows
-
-Zcmd owns the shell experience, but it does not try to replace the entire Windows command world.
+Zcmd handles a fixed set of built-ins directly and forwards everything else to `cmd.exe`.
 
 ```text
 Windows Terminal / VS Code / any terminal host
@@ -45,55 +39,53 @@ Windows Terminal / VS Code / any terminal host
                     batch files, redirection, pipes, &&, ||, %VAR%, existing tooling
 ```
 
-That split is the trick.
+This keeps normal Windows command compatibility while allowing the shell itself to provide its own prompt, history, navigation, and full-screen tools.
 
-You get a better shell session without giving up normal Windows command compatibility. The boring stuff still works. The annoying stuff stops being annoying.
-
-Zcmd also keeps a few Windows-specific realities in mind:
+Some Windows-specific behaviors are handled explicitly:
 
 - GUI apps can launch detached instead of hijacking the shell.
 - Common env-mutating wrappers like version managers can update the current session instead of dying in a child process.
 - Full-screen tools use the terminal cleanly and return you to the exact shell view you had before.
 
-## More than a prompt upgrade
+## Built-in commands
 
-The prompt and `ls` get your attention. The built-ins are what make Zcmd feel like a place instead of a wrapper.
+The prompt and file navigation are only part of the shell. Zcmd also includes a set of built-in full-screen and utility commands.
 
-### `ls` makes the shell readable
+### `ls`
 
-Colored listing, useful sorting, hidden-file handling, and filtering with `grep` or `findstr`. It fixes one of the most repeated actions in a Windows shell.
+Colored listing, sorting, hidden-file handling, and filtering with `grep` or `findstr`.
 
-### `cat` is not just `type`
+### `cat`
 
-Syntax-highlighted text, inline image rendering, and terminal video playback when `ffmpeg` is available. It makes the terminal a viewer, not just an output box.
+Syntax-highlighted text, inline image rendering, and terminal video playback when `ffmpeg` is available.
 
 ![Inline image or code rendering with cat](./images/03-cat.png)
 
-### `explore` gives you a real file workspace
+### `explore`
 
-A full-screen two-panel file explorer built into the shell. Sort, filter, select, copy, move, recycle, delete, and stay in the same session the whole time.
+A full-screen two-panel file explorer built into the shell. It supports sorting, filtering, selection, copy, move, recycle, and delete operations.
 
 ![Two-panel file explorer](./images/04-explore.png)
 
-### `play` gives the shell an MP3 player
+### `play`
 
-Play a single MP3, shuffle a folder, jump tracks, pause, resume, change volume, and keep a lightweight now-playing UI inside the terminal.
+Play a single MP3 or a folder, with shuffle, track navigation, pause, resume, and volume control.
 
-### `top` is the fast task manager in the terminal
+### `top`
 
-`top` opens immediately, updates immediately, and kills tasks immediately. No visible lag, no heavyweight detour through Task Manager, no feeling that the tool itself is slowing you down while you are trying to fix something.
+Interactive process viewer with sorting, filtering, and task termination.
 
 ![Built-in top process viewer](./images/07-top.png)
 
-### `resmon` gives you live system graphs
+### `resmon`
 
-`resmon` shows CPU, GPU, RAM, battery, and network activity with live history graphs, directly in the terminal, without leaving the shell.
+Live CPU, GPU, RAM, battery, and network history graphs in the terminal.
 
 ![Live resource monitor](./images/06-resmon.png)
 
-### `edit` and `view` keep momentum alive
+### `edit` and `view`
 
-Open a file, fix the thing, save, and keep going. No app switch. No editor startup tax for tiny changes. Syntax highlighting is built in.
+Built-in file editor and viewer with syntax highlighting.
 
 ![Built-in full-screen editor](./images/05-edit.png)
 
@@ -101,17 +93,15 @@ Open a file, fix the thing, save, and keep going. No app switch. No editor start
 
 Zcmd also includes `yt`, `ip`, `calc`, `json`, `clip`, `clock`, `stopw`, `matrix`, and `notes`.
 
-It is a very particular kind of terminal ambition: not "be everything," but "make the session weirdly capable."
+### `help`
 
-### `help` keeps the built-ins discoverable
-
-The built-in command list is right there in the shell, with short usage hints so you do not have to break flow to remember syntax or rediscover what Zcmd ships with.
+Shows the built-in command list and short usage hints.
 
 ![Built-in command help overview](./images/08-help.png)
 
-## The commands people tend to keep
+## Common commands
 
-This is not the full manual. These are the ones that usually stick:
+This is not the full manual. These are common examples:
 
 - `ls -al`, `ls -tr`, `ls | grep foo`
 - `cd -`, `cd --`, `cd ~~`
@@ -125,11 +115,11 @@ This is not the full manual. These are the ones that usually stick:
 - `which <command>`
 - `alias ll=ls -l`
 
-Everything else still falls through to `cmd.exe`, so existing Windows habits, batch files, and toolchains keep working.
+Everything else still falls through to `cmd.exe`, so existing Windows batch files and external toolchains keep working.
 
 ## Install and run
 
-Download `zcmd.exe` from [Releases](../../releases), put it somewhere stable, and point your terminal profile at it. Installation is basically: download the single executable, put it in a folder, and run it.
+Download `zcmd.exe` from [Releases](../../releases), put it in a stable location, and point your terminal profile at it.
 
 Windows Terminal:
 
@@ -156,7 +146,7 @@ Optional extras:
 
 - `ffmpeg` enables terminal video playback and powers `yt`
 - `yt-dlp` enables `yt mp3` and `yt mp4`
-- a terminal with ANSI and Unicode support makes Zcmd feel the way it is supposed to
+- a terminal with ANSI and Unicode support is recommended
 
 ## Build
 
