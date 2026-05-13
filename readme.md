@@ -17,7 +17,6 @@ The core shell is self-contained. Optional tools such as `ffmpeg` and `yt-dlp` a
 - Tab completion works for relative paths such as `cd ../someth`.
 - The prompt shows time, git branch, dirty state, exit code, and long-command timing.
 - Paths are displayed with `/` separators in the UI.
-- Entering a directory path and pressing Enter changes into that directory.
 
 ![Zcmd prompt, history hint, and branch info](./images/01-prompt.png)
 
