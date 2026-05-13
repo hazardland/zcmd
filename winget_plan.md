@@ -92,4 +92,3 @@
 - Add a custom `Zcmd` icon for the Terminal profile.
 - Add an installer option for machine-wide vs user-only install if needed.
 - Add a `winget` section to `readme.md` after the packaging flow is proven.
-
